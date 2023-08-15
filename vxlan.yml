@@ -33,7 +33,8 @@
     - name: add description and forwarding mode to SVI
       cisco.nxos.nxos_interfaces:
         config:
-          - description: "{{ vlan_name }}"
+          - name: "vlan{{ vlan_id }}"
+            description: "{{ vlan_name }}"
             fabric_forwarding_anycast_gateway: true
         state: merged
 
