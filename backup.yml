@@ -1,6 +1,6 @@
 ---
 - name: backup nxos running config
-  hosts: all
+  hosts: switches
   gather_facts: false
 
   tasks:
