@@ -10,9 +10,10 @@
         backup: true
         backup_options:
           dir_path: /tmp/home/network
-          filename: "{{ inventory_hostname }}_backup.txt"
+          filename: "{{ inventory_hostname }}_backup.cfg"
         
       register: backup
+      
 - name: copy backup to host   
   hosts: report.shadowman.dev
   gather_facts: false
