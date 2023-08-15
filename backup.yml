@@ -11,4 +11,4 @@
         backup_options:
           filename: "backup_{{ inventory_hostname }}.cfg"
           dir_path: /home/rhusein/backups
-      delegate_to: tower.shadowman.dev
+      delegate_to: tower1.shadowman.dev
