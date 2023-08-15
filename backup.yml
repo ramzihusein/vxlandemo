@@ -9,6 +9,16 @@
       cisco.nxos.nxos_config:
         backup: true
         backup_options:
-          filename: "backup_{{ inventory_hostname }}.cfg"
-          dir_path: /home/rhusein/backups
+          dir_path: /tmp/
+          filename: "{{ inventory_hostname }}_backup.cfg"
+        
+      register: backup
+    
+    - name: save backup to controller
+      ansible.builtin.copy:
+        src: "{{ backup.backup_path }}"
+        dest: "/home/rhusein/backups/"
+        mode: "644"
+      when: backup is defined
+      become: true
       delegate_to: tower1.shadowman.dev
