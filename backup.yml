@@ -1,0 +1,13 @@
+---
+- name: backup nxos running config
+  hosts: all
+  gather_facts: false
+
+  tasks:
+
+    - name: Backup nxos config
+      cisco.nxos.nxos_config:
+        backup: true
+        backup_options:
+          filename: backup.cfg
+          dir_path: /home/rhusein/backups
