@@ -7,22 +7,22 @@
     - name: add new vlan
       cisco.nxos.nxos_vlans:
         config:
-          - vlan_id:  {{ vlan_id }}
-            name: {{ vlan_name }}
-            mapped_vni: {{ vni_number }}
+          - vlan_id:  "{{ vlan_id }}"
+            name: "{{ vlan_name }}"
+            mapped_vni: "{{ vni_number }}"
         state: merged
 
     - name: add new member vni
       cisco.nxos.nxos_vxlan_vtep_vni:
         interface: nve1
-        vni: {{ vni_number }}
+        vni: "{{ vni_number }}"
         multicast_group: 232.1.1.1
       state: merged
 
     - name: configure new SVI
       cisco.nxos.nxos_l3_interfaces:
         config:
-          - name: vlan{{ vlan_id }}
+          - name: "vlan{{ vlan_id }}"
             redirects: false
             ipv4:
               - address: "{{ svi_address }}/24"
@@ -33,7 +33,7 @@
     - name: add description and forwarding mode to SVI
       cisco.nxos.nxos_interfaces:
         config:
-          description: {{ vlan_name }}
+          description: "{{ vlan_name }}"
           fabric_forwarding_anycast_gateway: true
         state: merged
 
