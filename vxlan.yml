@@ -26,7 +26,7 @@
             redirects: false
             ipv4:
               - address: "{{ svi_address }}/24"
-                tag: {{ vlan_id }}
+                tag: "{{ vlan_id }}"
             ipv6_redirects: false
         state: merged
     
