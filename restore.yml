@@ -1,0 +1,20 @@
+---
+- name: fetch backup from remote host
+  hosts: report.shadowman.dev
+  gather_facts: false
+
+  tasks:
+
+    - ansible.builtin.fetch:
+        src: "/home/rhusein/backups/{{ target_switch }}.cfg"
+        dest: /tmp/home/network/
+        flat: true
+
+- name: restore nxos config
+  hosts: "{{ target_switch }}"
+  gather_facts: false
+
+  tasks:
+
+    - cisco.nxos.nxos_config:
+        src: "/tmp/home/network/{{ target_switch }}.cfg"
