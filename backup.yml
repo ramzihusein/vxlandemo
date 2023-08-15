@@ -20,5 +20,5 @@
         dest: "/home/rhusein/backups/"
         mode: "644"
       when: backup is defined
-      ansible_connection: ssh
+      ansible_connection: local
       delegate_to: tower1.shadowman.dev
