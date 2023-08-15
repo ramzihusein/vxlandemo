@@ -36,6 +36,7 @@
           - name: "vlan{{ vlan_id }}"
             description: "{{ vlan_name }}"
             fabric_forwarding_anycast_gateway: true
+            enabled: true
         state: merged
 
 
