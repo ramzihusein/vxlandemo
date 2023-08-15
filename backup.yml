@@ -9,5 +9,5 @@
       cisco.nxos.nxos_config:
         backup: true
         backup_options:
-          filename: "backup_{{ ansible_hostname }}.cfg"
+          filename: "backup_{{ inventory_hostname }}.cfg"
           dir_path: /home/rhusein/backups
