@@ -10,7 +10,7 @@
         backup: true
         backup_options:
           dir_path: /tmp/
-          filename: "{{ inventory_hostname }}_backup.cfg"
+          filename: "{{ inventory_hostname }}_backup.txt"
         
       register: backup
     
@@ -20,5 +20,5 @@
         dest: "/home/rhusein/backups/"
         mode: "644"
       when: backup is defined
-      become: true
+      ansible_connection: ssh
       delegate_to: tower1.shadowman.dev
