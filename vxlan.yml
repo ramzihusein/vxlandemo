@@ -10,7 +10,7 @@
         state: gathered
       register: result
     
-    - name: check if vlan {{ vlan_id }} or vni {{ vni_number }} already exists on the leaf
+    - name: check if vlan {{ vlan_id }} already exists on the leaf
       debug:
         var: item['vlan_id']
       loop: "{{ result['gathered'] }}"
