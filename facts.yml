@@ -12,7 +12,7 @@
     
     - name: print vlans
       debug:
-        var: vlan_id
+        var: item['vlan_id']
       loop: "{{ result['gathered'] }}"
 
 
