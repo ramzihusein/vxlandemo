@@ -14,7 +14,7 @@
       debug:
         var: item['vlan_id']
       loop: "{{ result['gathered'] }}"
-      failed_when: item['vlan_id'] is "2010"
+      failed_when: item['vlan_id'] is 2010
 
 
 
