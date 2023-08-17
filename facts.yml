@@ -1,0 +1,17 @@
+---
+- name: gather VLAN list
+  hosts: leafs
+  gather_facts: no
+
+  tasks:
+
+    - name: gather facts
+      cisco.nxos.nxos_vlans:
+        state: gathered
+      register: result
+    
+    - name: print vlans
+      debug:
+        var: result
+
+        
