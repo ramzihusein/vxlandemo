@@ -12,6 +12,12 @@
     
     - name: print vlans
       debug:
-        var: result
+        var: "{{ result.gathered | dict2items }}"
+
+#    - name: fail test
+#      debug: 
+#        msg: hello
+#      failed_when: "2010" in result
+
 
         
