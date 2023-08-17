@@ -14,7 +14,7 @@
       debug:
         var: item['vlan_id']
       loop: "{{ result['gathered'] }}"
-      failed_when: item['vlan_id'] == "{{ vlan_id }}"
+      failed_when: item['vlan_id'] == vlan_id 
 
     - name: add new vlan
       cisco.nxos.nxos_vlans:
