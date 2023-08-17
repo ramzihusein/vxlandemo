@@ -13,7 +13,7 @@
     - name: print vlans
       debug:
         var: item.vlan_id
-      loop: result.gathered
+      loop: gathered
 
 
 
