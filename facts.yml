@@ -12,8 +12,8 @@
     
     - name: print vlans
       debug:
-        var: item.vlan_id
-      loop: "{{ result['gathered'] | dict2items }}"
+        var: vlan_id
+      loop: "{{ result['gathered'] }}"
 
 
 
