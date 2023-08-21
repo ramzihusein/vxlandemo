@@ -27,6 +27,6 @@
     - name: save backup to controller
       ansible.builtin.copy:
         src: /tmp/home/network
-        dest: "/home/rhusein/backups/"
+        dest: "/home/rhusein/backups/{{ datetime }}/"
     #  ansible_connection: local
     #  delegate_to: tower1.shadowman.dev
