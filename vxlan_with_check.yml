@@ -5,6 +5,17 @@
 
   tasks:
 
+    - name: gather existing vlans
+      cisco.nxos.nxos_vlans:
+        state: gathered
+      register: result
+ 
+    - name: fail if vlan {{ vlan_id }} already exists on the leaf
+      fail:
+        msg: "vlan {{ vlan_id }} is already configured on this device"
+      loop: "{{ result['gathered'] }}"
+      failed_when: item['vlan_id'] == vlan_id
+
     - name: add new vlan
       cisco.nxos.nxos_vlans:
         config:
