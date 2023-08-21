@@ -19,6 +19,11 @@
   gather_facts: false
   
   tasks:
+    - name: Create time stamp for play
+      ansible.builtin.set_fact:
+        datetime: "{{ lookup('pipe', 'date +%Y-%m-%d-%H-%M') }}"
+      run_once: true
+
     - name: save backup to controller
       ansible.builtin.copy:
         src: /tmp/home/network
